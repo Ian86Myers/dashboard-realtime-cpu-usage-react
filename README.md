@@ -1,6 +1,6 @@
 # Dashboard Real-Time CPU Usage React
 
-![Preview](./react-admin/public/preview.png)
+![Preview](./public/preview.png)
 
 This project is a real-time dashboard built with React that includes various components:
 
