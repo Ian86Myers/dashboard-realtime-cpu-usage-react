@@ -13,6 +13,8 @@ This project is a real-time dashboard built with React that includes various com
 4. **Custom Gradient Icon/Table:**
    - Clicking on the gradient icon reveals a custom table feature built with MUI.
    - This table allows you to seamlessly create, edit, copy, and delete rows of data.
+   ![Preview Table](./public/preview-table.png)
+
 
 ## Getting Started with Create React App
 
