@@ -8,7 +8,9 @@ This project is a real-time dashboard built with React that includes various com
 
 3. **Geographical Location Component:** This feature, when implemented, allows users to visualize geographical data. Please note that the specific details of this component may vary based on your location.
 
-4. **Custom Gradient Icon/Table:** The gradient icon serves as a custom table designed to meet specific requirements. It provides a unique visual representation for data. It is the 5th Icon to the right on the top under the search.
+4. **Custom Gradient Icon/Table:**
+   - Clicking on the gradient icon reveals a custom table feature built with MUI.
+   - This table allows you to seamlessly create, edit, copy, and delete rows of data. 
 
 ## Getting Started with Create React App
 
