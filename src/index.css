@@ -1,13 +1,46 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Importing the Source Sans Pro font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+
+/* Applying styles to various elements */
+html,
+body,
+#root,
+.app,
+.content {
+  height: 100%;
+  width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  /* Setting the font family for these elements */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  display: flex;
+  /* Making the .app element a flex container */
+    /* Setting the position to relative */
+  position: relative;
+
+}
+
+/* Styling the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Setting the width of the scrollbar */
+}
+
+/* Styling the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  /* Setting the background color of the scrollbar track */
+}
+
+/* Styling the scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Setting the background color of the scrollbar handle */
+}
+
+/* Styling the scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Changing the background color of the scrollbar handle on hover */
 }
