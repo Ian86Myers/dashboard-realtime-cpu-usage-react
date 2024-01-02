@@ -2,7 +2,7 @@
 
 ![Preview](./public/preview.png)
 
-This project is a real-time dashboard built with React and includes various components such as fullcalendar/interaction, fullcalendar/react, nivo/line, testing-library/jest-dom, testing-library/rea:t, testing-library/user-event, react-chartjs-2, react-dom, react-ga, react-google-maps, react-pro-sidebar, and recharts.
+This project is a real-time dashboard built with React and includes various components such as fullcalendar/interaction, fullcalendar/react, nivo/line, testing-library/jest-dom, testing-library/react, testing-library/user-event, react-chartjs-2, react-dom, react-ga, react-google-maps, react-pro-sidebar, and recharts.
 
 1. **Mock Data Frontend:** The frontend initially uses mock data to showcase the overall structure of the dashboard.
 
