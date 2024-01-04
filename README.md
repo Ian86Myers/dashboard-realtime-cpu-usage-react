@@ -1,5 +1,7 @@
 # Dashboard Real-Time CPU Usage React
 
+[https://ian86myers.github.io/dashboard-realtime-cpu-usage-react/](https://ian86myers.github.io/dashboard-realtime-cpu-usage-react/)
+
 ![Preview](./public/preview.png)
 
 This project is a real-time dashboard built with React and includes various components such as fullcalendar/interaction, fullcalendar/react, nivo/line, testing-library/jest-dom, testing-library/react, testing-library/user-event, react-chartjs-2, react-dom, react-ga, react-google-maps, react-pro-sidebar, and recharts.
