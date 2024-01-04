@@ -38,17 +38,9 @@ function startServer(port) {
   return server;
 }
 
-// Function to stop the server
-function stopServer(server) {
-  if (server) {
-    server.close(() => {
-      console.log("Server stopped");
-    });
-  }
-}
 
 // Start the server on port 3002
-const serverInstance = startServer(3002);
+startServer(3002);
 
 // Uncomment the line below to stop the server after a certain time (for testing purposes)
 // setTimeout(() => stopServer(serverInstance), 5000);
