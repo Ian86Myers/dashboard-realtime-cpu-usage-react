@@ -11,8 +11,8 @@ This project is a real-time dashboard built with React and includes various comp
 3. **Geographical Location Component:** This feature, when implemented, allows users to visualize geographical data. Please note that the specific details of this component may vary based on your location.
 
 4. **Custom Gradient Icon/Table:**
-   - Clicking on the gradient icon reveals a custom table feature built with MUI.
-   - This table allows you to seamlessly create, edit, copy, and delete rows of data.
+   - Clicking on the gradient icon reveals a custom table feature built with MUI. ( 5th icon to the right under the search )
+   - The React component presented is designed to manage an project phase table for defining minimum grade requirements in a UI. It (can) operate with a dynamic list of tests, allowing users to associate specific grades with each test for various project phases. The component facilitates actions such as adding, editing, and deleting project phases, offering a comprehensive interface for handling and updating grade requirements in a flexible and dynamic manner.
    ![Preview Table](./public/preview-table.png)
 
 
