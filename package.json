@@ -5,6 +5,7 @@
   "dependencies": {
     "@fullcalendar/interaction": "^6.1.10",
     "@fullcalendar/react": "^6.1.10",
+    "@mui/material": "^5.15.3",
     "@nivo/line": "^0.84.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
