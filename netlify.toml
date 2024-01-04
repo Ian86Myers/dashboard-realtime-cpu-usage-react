@@ -1,7 +1,7 @@
 [build]
-  command = "npm install && npm run build"
-  publish = "build"  # Change this to your build output directory
-
+  command = "npm install --force && npm run build"
+  publish = "build"
+  
 [context.branch-deploy]
   command = "npm install && npm run build"
   publish = "build"  # Change this to your build output directory
@@ -13,5 +13,3 @@
 [build.environment]
   NODE_VERSION = "18"  # Change this to your desired Node.js version
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
