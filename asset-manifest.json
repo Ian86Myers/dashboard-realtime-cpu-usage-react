@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dashboard-realtime-cpu-usage-react/static/css/main.714dda56.css",
+    "main.js": "/dashboard-realtime-cpu-usage-react/static/js/main.2bf60021.js",
+    "index.html": "/dashboard-realtime-cpu-usage-react/index.html",
+    "main.714dda56.css.map": "/dashboard-realtime-cpu-usage-react/static/css/main.714dda56.css.map",
+    "main.2bf60021.js.map": "/dashboard-realtime-cpu-usage-react/static/js/main.2bf60021.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.714dda56.css",
+    "static/js/main.2bf60021.js"
+  ]
+}
