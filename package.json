@@ -20,6 +20,7 @@
     "react-ga": "^3.3.1",
     "react-google-maps": "^9.4.5",
     "react-pro-sidebar": "^0.7.1",
+    "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
     "recharts": "^2.10.3",
     "socket.io": "^4.7.2",
