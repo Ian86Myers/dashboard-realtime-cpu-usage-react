@@ -11,7 +11,8 @@ import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
+import PieChart from "../../components/PieChart";
+// import Pie from "../pie";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -130,30 +131,6 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
-          {/* <Box
-            mt="25px"
-            p="0 30px"
-            display="flex "
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Box>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                Real Time CPU Usage
-              </Typography>
-            </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
-              </IconButton>
-            </Box>
-          </Box> */}
           <Box height="250px" m="-20px 0 0 0">
             <LineChart isDashboard={true} />
           </Box>
@@ -214,32 +191,26 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
+          p="20px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            SpaceX Flight Success/Failures
           </Typography>
           <Box
             display="flex"
             flexDirection="column"
             alignItems="center"
-            mt="25px"
+            height="100%"
           >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <PieChart isDashboard />
           </Box>
         </Box>
+
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          
         >
           <Typography
             variant="h5"
@@ -266,7 +237,7 @@ const Dashboard = () => {
             Geographical location
           </Typography>
           <Box height="200px">
-            <GeographyChart isDashboard={true} />
+            <GeographyChart />
           </Box>
         </Box>
       </Box>

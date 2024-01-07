@@ -1,73 +1,167 @@
-// PageAnalytics.js
 import React, { useEffect, useState } from "react";
-import { Box, useTheme } from "@mui/material";
+import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
+import { useTheme } from "@mui/material";
+// import { mockPieData as data } from "../data/mockData";
 
-const PageAnalytics = ({ size = "40" }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+const PieChart = ({isDashboard}) => {
 
-  // State to store unique visitors and page views
-  const [uniqueVisitors, setUniqueVisitors] = useState([]);
-  const [pageViews, setPageViews] = useState(0);
+  const [spaceXData, setSpaceXData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Retrieve the current unique visitors and page views from local storage
-    const storedUniqueVisitors =
-      JSON.parse(localStorage.getItem("uniqueVisitors")) || [];
-    const storedPageViews = localStorage.getItem("pageViews");
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://api.spacexdata.com/v3/launches");
+        const data = await response.json();
 
-    // Check if the current visitor is unique
-    const currentVisitorId = getVisitorId();
-    const isUniqueVisitor = !storedUniqueVisitors.includes(currentVisitorId);
+        // Extract success and failure data
+        const filteredData = data.reduce(
+          (acc, { launch_success }) => {
+            launch_success ? acc.success++ : acc.failure++;
+            return acc;
+          },
+          { success: 0, failure: 0 }
+        );
 
-    // Update unique visitors if the current visitor is unique
-    if (isUniqueVisitor) {
-      setUniqueVisitors([...storedUniqueVisitors, currentVisitorId]);
-      localStorage.setItem(
-        "uniqueVisitors",
-        JSON.stringify([...storedUniqueVisitors, currentVisitorId])
-      );
-    }
+        console.log("SpaceX Data:", filteredData);
+        setSpaceXData(filteredData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching SpaceX data:", error);
+        setLoading(false);
+      }
+    };
 
-    // Update page views
-    const initialPageViews = parseInt(storedPageViews) || 0;
-    setPageViews(initialPageViews + 1);
-    localStorage.setItem("pageViews", initialPageViews + 1);
+    const timeoutId = setTimeout(() => {
+      fetchData();
+    }, 1000);
+
+    // Cleanup the timeout if the component unmounts or data is fetched
+    return () => clearTimeout(timeoutId);
   }, []);
 
-  // Function to generate a unique visitor identifier
-  const getVisitorId = () => {
-    const existingVisitorId = localStorage.getItem("visitorId");
-    if (existingVisitorId) {
-      return existingVisitorId;
-    } else {
-      const newVisitorId =
-        Date.now().toString(36) + Math.random().toString(36).substring(2);
-      localStorage.setItem("visitorId", newVisitorId);
-      return newVisitorId;
-    }
-  };
-
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   return (
-    <Box
-      sx={{
-        background: `radial-gradient(${colors.primary[400]} 55%, transparent 56%),
-            conic-gradient(transparent 0deg 360deg, ${colors.blueAccent[500]} 0deg 360deg),
-            ${colors.greenAccent[500]}`,
-        borderRadius: "50%",
-        width: `${size}px`,
-        height: `${size}px`,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "14px",
-        color: colors.grey[100],
-      }}
-    >
-      Unique Visitors: {uniqueVisitors.length} | Page Views: {pageViews}
-    </Box>
+    <>
+      {loading ? (
+        <p>Loading SpaceX data...</p>
+      ) : (
+        <ResponsivePie
+          data={
+            spaceXData
+              ? [
+                  {
+                    id: "success",
+                    label: "Success",
+                    value: spaceXData.success,
+                  },
+                  {
+                    id: "failure",
+                    label: "Failure",
+                    value: spaceXData.failure,
+                  },
+                ]
+              : []
+          }
+          theme={{
+            axis: {
+              domain: {
+                line: {
+                  stroke: colors.grey[100],
+                },
+              },
+              legend: {
+                text: {
+                  fill: colors.grey[100],
+                },
+              },
+              ticks: {
+                line: {
+                  stroke: colors.grey[100],
+                  strokeWidth: 1,
+                },
+                text: {
+                  fill: colors.grey[100],
+                },
+              },
+            },
+            legends: {
+              text: {
+                fill: colors.grey[100],
+              },
+            },
+          }}
+          margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+          innerRadius={isDashboard ? 0.3 : 0.01}
+          padAngle={0.5}
+          cornerRadius={3}
+          activeOuterRadiusOffset={isDashboard ? 4 : 8}
+          borderColor={{
+            from: "color",
+            modifiers: [["darker", 0.2]],
+          }}
+          arcLinkLabelsSkipAngle={10}
+          arcLinkLabelsTextColor={colors.grey[100]}
+          arcLinkLabelsThickness={2}
+          arcLinkLabelsColor={{ from: "color" }}
+          enableArcLabels={true}
+          arcLabelsRadiusOffset={0.4}
+          arcLabelsSkipAngle={7}
+          arcLabelsTextColor={{
+            from: "color",
+            modifiers: [["darker", 2]],
+          }}
+          defs={[
+            {
+              id: "dots",
+              type: "patternDots",
+              background: "inherit",
+              color: "rgba(255, 255, 255, 0.3)",
+              size: 4,
+              padding: 1,
+              stagger: true,
+            },
+            {
+              id: "lines",
+              type: "patternLines",
+              background: "inherit",
+              color: "rgba(255, 255, 255, 0.3)",
+              rotation: -45,
+              lineWidth: 6,
+              spacing: 10,
+            },
+          ]}
+          legends={[
+            {
+              anchor: "bottom",
+              direction: "row",
+              justify: false,
+              translateX: 0,
+              translateY: 56,
+              itemsSpacing: 0,
+              itemWidth: 100,
+              itemHeight: 18,
+              itemTextColor: "#999",
+              itemDirection: "left-to-right",
+              itemOpacity: 1,
+              symbolSize: 18,
+              symbolShape: "circle",
+              effects: [
+                {
+                  on: "hover",
+                  style: {
+                    itemTextColor: "#000",
+                  },
+                },
+              ],
+            },
+          ]}
+        />
+      )}
+    </>
   );
 };
 
-export default PageAnalytics;
+export default PieChart;

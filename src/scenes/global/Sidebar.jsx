@@ -60,7 +60,9 @@ const Sidebar = () => {
           color: "#6870fa !important",
         },
       }}
-    > <ProSidebar collapsed={isCollapsed}>
+    >
+      {" "}
+      <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -118,7 +120,7 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/"
+              to="/dashboard-realtime-cpu-usage-react/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

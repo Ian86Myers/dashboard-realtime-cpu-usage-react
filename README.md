@@ -17,6 +17,13 @@ This project is a real-time dashboard built with React and includes various comp
    - The React component presented is designed to manage an project phase table for defining minimum grade requirements in a UI. It (can) operate with a dynamic list of tests, allowing users to associate specific grades with each test for various project phases. The component facilitates actions such as adding, editing, and deleting project phases, offering a comprehensive interface for handling and updating grade requirements in a flexible and dynamic manner.
    ![Preview Table](./public/preview-table.png)
 
+5. **SpaceX Launch Success Pie Chart:**
+   - Visualizes the distribution of SpaceX launch outcomes, showcasing the proportion of successful launches versus failures.
+   - Utilizes real-time data from the SpaceX API to provide an up-to-date overview.
+   - Responsive design and dynamic styling for a user-friendly experience.
+   - Inner radius adjusts based on context, making it adaptable for different dashboard configurations.
+
+
 
 ## Getting Started with Create React App
 
