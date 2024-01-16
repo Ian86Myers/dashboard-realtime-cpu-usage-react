@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/dashboard-realtime-cpu-usage-react/static/css/main.714dda56.css",
-    "main.js": "/dashboard-realtime-cpu-usage-react/static/js/main.8f328ac8.js",
+    "main.js": "/dashboard-realtime-cpu-usage-react/static/js/main.cd23e08b.js",
     "index.html": "/dashboard-realtime-cpu-usage-react/index.html",
     "main.714dda56.css.map": "/dashboard-realtime-cpu-usage-react/static/css/main.714dda56.css.map",
-    "main.8f328ac8.js.map": "/dashboard-realtime-cpu-usage-react/static/js/main.8f328ac8.js.map"
+    "main.cd23e08b.js.map": "/dashboard-realtime-cpu-usage-react/static/js/main.cd23e08b.js.map"
   },
   "entrypoints": [
     "static/css/main.714dda56.css",
-    "static/js/main.8f328ac8.js"
+    "static/js/main.cd23e08b.js"
   ]
 }
